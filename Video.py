@@ -1,7 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v3 as iio
-import csv
+import csv, os
+
+file_path = "Two body sim.mp4"
+
+if os.path.exists(file_path):
+    try:
+        os.remove(file_path)
+        print(f"File '{file_path}' deleted successfully.")
+    except OSError as e:
+        print(f"Error deleting file '{file_path}': {e}")
+else:
+    print(f"File '{file_path}' does not exist.")
 
 def video(filename: str):
     """
@@ -17,7 +28,7 @@ def video(filename: str):
             x2, y2 = float(row['x2']), float(row['y2'])
             
             # Create the figure
-            fig, ax = plt.subplots(figsize=(38.4, 21.6), dpi=100)
+            fig, ax = plt.subplots(figsize=(20, 20), dpi=100)
             fig.patch.set_facecolor('black')
             ax.set_facecolor('black')
             ax.axis('off')
