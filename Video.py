@@ -3,22 +3,22 @@ import matplotlib.pyplot as plt
 import imageio.v3 as iio
 import csv, os
 
-file_path = "Two body sim.mp4"
-
-if os.path.exists(file_path):
-    try:
-        os.remove(file_path)
-        print(f"File '{file_path}' deleted successfully.")
-    except OSError as e:
-        print(f"Error deleting file '{file_path}': {e}")
-else:
-    print(f"File '{file_path}' does not exist.")
-
 def video(filename: str):
     """
     Take CSV data and generate plots at time t (frames),
     and compile them into a video
     """
+    file_path = "Two body sim.mp4"
+
+    if os.path.exists(file_path):
+        try:
+            os.remove(file_path)
+            print(f"File '{file_path}' deleted successfully.")
+        except OSError as e:
+            print(f"Error deleting file '{file_path}': {e}")
+    else:
+        print(f"File '{file_path}' does not exist.")
+
     frames = []
     with open(filename, 'r') as myfile:
         myfile = csv.DictReader(myfile)
