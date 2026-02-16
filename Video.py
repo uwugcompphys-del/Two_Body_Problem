@@ -9,7 +9,7 @@ def video(filename: str):
     Take CSV data and generate plots at time t (frames),
     and compile them into a video
     """
-    file_path = "Two body sim.mp4"
+    file_path = "twobody.mp4"
 
     if os.path.exists(file_path):
         try:
@@ -49,4 +49,4 @@ def video(filename: str):
             plt.close(fig)  # close the figure to save memory
 
         # Write the video (using FFmpeg backend)
-    iio.imwrite("Two body sim.mp4", frames, fps=60)
+    iio.imwrite("twobody.mp4", frames, fps=60)
