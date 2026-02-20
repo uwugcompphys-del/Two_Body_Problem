@@ -17,9 +17,14 @@ import constants as const
 
 
 def delete_csv():
-    file = 'binary_star.csv'
-    if(os.path.exists(file) and os.path.isfile(file)):
-        os.remove(file)
+    # Get directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Combine directory with filename
+    csv_path = os.path.join(script_dir, "binary_star.csv")
+
+    if(os.path.exists(csv_path) and os.path.isfile(csv_path)):
+        os.remove(csv_path)
         print("file deleted")
     else:
         print("file not found")
@@ -76,10 +81,14 @@ def Rk4_method(current_values, dt):
     return current_values + (dt/6)*(k1 + 2*k2 + 2*k3 + k4)
 
 def Create_csv():
-    
+    # Get directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Combine directory with filename
+    csv_file_path = os.path.join(script_dir, 'binary_star.csv')
     Frames = 600
 
-    with open('binary_star.csv', 'a', newline='') as file:
+    with open(csv_file_path, 'a', newline='') as file:
         dt = 1000/60
         writer = csv.writer(file)
         writer.writerow(['Time','x1', 'x2', 'y1', 'y2'])
