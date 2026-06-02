@@ -17,11 +17,6 @@ energy_csv_path = os.path.join(script_dir, "Energy_values.csv")
 #Generate simulation only once
 if "simulation_done" not in st.session_state:
     pva.delete_csv()
-    pva.verlet_method(
-        pva.setup_initial_conditions(const.rf_1, const.rf_2,
-            bm.body_mass(const.h, const.rf_1, const.p0_1)[1],
-            bm.body_mass(const.h, const.rf_2, const.p0_2)[1],
-            const.G), 1000/60)
     pva.Create_csv()
     v.video(position_csv_path)
     ec.energy()
