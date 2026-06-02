@@ -110,5 +110,9 @@ def Create_csv():
         Time = 1
         for frame in range(Frames):
             current_values = verlet_method(current_values, dt)
-            writer.writerow([Time, current_values[0], current_values[2], current_values[1], current_values[3]])
+            writer.writerow([Time, current_values[0], current_values[2], 
+                             current_values[1], current_values[3]])
             Time += 1
+
+delete_csv()
+Create_csv()
