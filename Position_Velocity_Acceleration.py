@@ -41,7 +41,6 @@ def setup_initial_conditions(r1, r2, m1, m2, G):
 def calculate_derivatives(current_values):
     """Calculates the derivatives of position and velocity"""
 # calculate derrivatives (position, velocity)
-# gravity calculation?
     x1, y1, x2, y2, vx1, vy1, vx2, vy2 = current_values
 
     dx = x2 - x1
@@ -60,8 +59,8 @@ def calculate_derivatives(current_values):
     ax2 = -Fx / m2
     ay2 = -Fy / m2
 
-
-    return np.array([vx1, vy1, vx2, vy2, ax1, ay1, ax2, ay2]), r #list of velocity and accelerations
+    print("*****************", np.array([vx1, vy1, vx2, vy2, ax1, ay1, ax2, ay2]))
+    return np.array([vx1, vy1, vx2, vy2, ax1, ay1, ax2, ay2])#list of velocity and accelerations
 
 #verlet method:
 
@@ -113,6 +112,3 @@ def Create_csv():
             writer.writerow([Time, current_values[0], current_values[2], 
                              current_values[1], current_values[3]])
             Time += 1
-
-delete_csv()
-Create_csv()

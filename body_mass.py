@@ -71,5 +71,3 @@ def body_mass(h, rf, p_0):
 
 
 
-
-
